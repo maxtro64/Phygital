@@ -57,7 +57,7 @@ Phygital is a high-performance, full-stack e-commerce application designed to br
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/yourusername/phygital-commerce.git
+git clone https://github.com/maxtro64/phygital-commerce.git
 cd phygital-commerce
 ```
 
@@ -66,6 +66,7 @@ cd phygital-commerce
 cd backend
 npm install
 ```
+
 Create a `.env` file in the `backend` folder:
 ```env
 PORT=3000
@@ -74,7 +75,8 @@ JWT_SECRET=your_secret_key
 RAZORPAY_KEY_ID=your_key_id
 RAZORPAY_KEY_SECRET=your_key_secret
 ```
-Run the seeder to populate dummy data:
+
+Run the seeder and start backend:
 ```bash
 node utils/seeder.js
 npm start
@@ -84,9 +86,6 @@ npm start
 ```bash
 cd ../frontend
 npm install
-```
-Start the development server:
-```bash
 npm run dev
 ```
 
@@ -94,12 +93,16 @@ npm run dev
 
 ## 🔄 How It Works (Application Flow)
 
-1. **Onboarding**: User signs up and grants location permission.
-2. **Explore**: The app filters and displays shops closest to the user's coordinates.
-3. **Shop & Cart**: User browses a shop's inventory, adds items to their cart, and adjusts quantities.
-4. **Checkout**: User selects a delivery address and chooses between COD or Razorpay.
-5. **Real-time Tracking**: Once placed, the user is redirected to a tracking page where they see the shopkeeper's progress live.
-6. **History**: Completed orders are saved to the user's profile for easy re-ordering.
+1. User signs up and logs in  
+2. Location permission is requested  
+3. Nearby shops are displayed  
+4. User selects a shop and browses products  
+5. Adds items to cart  
+6. Places order (COD or Online Payment)  
+7. Order is saved in database  
+8. User is redirected to tracking page  
+9. Order status updates (Placed → Preparing → Out for Delivery → Delivered)  
+10. Orders are stored in user history  
 
 ---
 
@@ -112,18 +115,28 @@ npm run dev
 ---
 
 ## 🔮 Future Improvements
-- [ ] **Live Rider Tracking**: Real-time Map markers for delivery boys.
-- [ ] **AI-Based Recommendations**: Personalized product suggestions based on order history.
-- [ ] **Multi-Vendor Cart**: Ability to checkout from multiple shops in a single transaction.
-- [ ] **Native Mobile App**: Implementation using React Native.
+
+- Live Rider Tracking (Real-time map updates)  
+- AI-based product recommendations  
+- Multi-vendor cart system  
+- Mobile app using React Native  
 
 ---
 
-## 👨‍💻 Author Details
-**Your Name**
-- **GitHub**: [@yourusername](https://github.com/yourusername)
-- **LinkedIn**: [Your Profile](https://linkedin.com/in/yourprofile)
-- **Portfolio**: [yourportfolio.com](https://yourportfolio.com)
+## 👨‍💻 Author
+
+**Shivam Yadav**
+
+- GitHub: https://github.com/maxtro64  
+- LinkedIn: https://www.linkedin.com/in/shivam-yadav-b87300294/  
+- Email: shivam2110207@gmail.com  
 
 ---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
+
+---
+
 *Created with ❤️ for the Local Commerce Revolution.*
