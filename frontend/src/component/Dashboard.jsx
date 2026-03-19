@@ -1,31 +1,7 @@
 import React, { useState } from 'react';
-import { 
-  Store, 
-  TrendingUp, 
-  Users, 
-  Package, 
-  DollarSign, 
-  Clock, 
-  ShoppingCart, 
-  Bell, 
-  Settings,
-  BarChart,
-  Download,
-  Calendar,
-  MapPin,
-  Star,
-  MessageSquare,
-  CheckCircle,
-  AlertCircle,
-  ChevronRight,
-  Plus,
-  Edit,
-  Eye,
-  Truck,
-  CreditCard,
-  Smartphone,
   Home
 } from 'lucide-react';
+import ProductPlaceholder from './ProductPlaceholder';
 
 const ShopkeeperDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -446,14 +422,8 @@ const ShopkeeperDashboard = () => {
                   {popularProducts.map((product, index) => (
                     <div key={index} className="flex items-center justify-between p-3 hover:bg-[#FFF8DC] rounded-lg transition-colors">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-[#FF6347]/10 to-[#FFD700]/10 rounded-lg flex items-center justify-center">
-                          <span className="text-lg">
-                            {product.name.includes('Milk') && '🥛'}
-                            {product.name.includes('Eggs') && '🥚'}
-                            {product.name.includes('Bread') && '🍞'}
-                            {product.name.includes('Tomatoes') && '🍅'}
-                            {product.name.includes('Potatoes') && '🥔'}
-                          </span>
+                        <div className="w-10 h-10 relative rounded-lg overflow-hidden">
+                          <ProductPlaceholder name={product.name} category="Groceries" className="text-xl" />
                         </div>
                         <div>
                           <div className="font-bold text-[#8B4513]">{product.name}</div>

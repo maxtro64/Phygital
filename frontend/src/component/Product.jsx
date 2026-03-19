@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { dummyProducts, categories as dummyCategories, dummyShops } from '../utils/dummyData';
+import { useCart } from '../context/CartContext';
+import ProductPlaceholder from './ProductPlaceholder';
 import { 
   Package, 
   Plus, 
@@ -13,9 +17,6 @@ import {
   ArrowLeft
 } from 'lucide-react';
 import { API_BASE_URL } from '../config';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { dummyProducts, categories as dummyCategories, dummyShops } from '../utils/dummyData';
-import { useCart } from '../context/CartContext';
 
 const ProductListingPage = () => {
   const [products, setProducts] = useState([]);
@@ -181,11 +182,15 @@ const ProductListingPage = () => {
                 {filteredProducts.map(product => (
                   <div key={product.id} className={`group bg-white rounded-[2rem] p-4 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100/50 flex flex-col relative ${product.stock === 0 ? 'opacity-75 grayscale-[0.5]' : ''}`}>
                     <div className="relative aspect-square rounded-2xl overflow-hidden bg-gray-50 mb-4">
-                      <img 
-                        src={product.image || 'https://via.placeholder.com/300?text=Product'} 
-                        alt={product.name} 
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
+                      {product.image ? (
+                        <img 
+                          src={product.image} 
+                          alt={product.name} 
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                      ) : (
+                        <ProductPlaceholder name={product.name} category={product.category} />
+                      )}
                       {product.stock === 0 && (
                         <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-4">
                           <div className="bg-white text-gray-900 text-xs font-black px-4 py-2 rounded-xl shadow-xl transform -rotate-12 tracking-widest uppercase">

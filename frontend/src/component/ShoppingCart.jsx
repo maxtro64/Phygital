@@ -35,6 +35,7 @@ import {
   Banknote,
   Lock
 } from 'lucide-react';
+import ProductPlaceholder from './ProductPlaceholder';
 
 // API Configuration moved to config.js
 
@@ -819,15 +820,8 @@ const ShoppingCartPage = () => {
                                 }}
                               />
                             ) : null}
-                            <div className="text-3xl w-full h-full items-center justify-center" style={{ display: item.image ? 'none' : 'flex' }}>
-                              {item.category === 'Dairy' && '🥛'}
-                              {item.category === 'Poultry' && '🥚'}
-                              {item.category === 'Bakery' && '🍞'}
-                              {item.category === 'Vegetables' && '🍅'}
-                              {item.category === 'Fruits' && '🍌'}
-                              {item.category === 'Medicines' && '💊'}
-                              {item.category === 'Electronics' && '📱'}
-                              {!['Dairy','Poultry','Bakery','Vegetables','Fruits','Medicines','Electronics'].includes(item.category) && '📦'}
+                            <div className="w-full h-full" style={{ display: item.image ? 'none' : 'block' }}>
+                              <ProductPlaceholder name={item.name} category={item.category} className="rounded-lg" />
                             </div>
                           </div>
                           {!item.inStock && (
